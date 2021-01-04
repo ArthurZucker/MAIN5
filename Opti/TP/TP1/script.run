@@ -1,0 +1,17 @@
+reset;
+model ampl_data/atsp-exp.mod;
+data ampl_data/atsp.dat;
+solve;
+printf "digraph result{\n">"output.dot";
+for {u in Vertices}{
+  printf "%d [label=%.2f]\n",u,y[u]>>"output.dot";
+}
+for {(u,v) in Arcs} {
+  if x[u,v]<>0 then {
+    printf "%d->%d [color=blue,label=%.2f];\n",u,v,x[u,v]>>"output.dot";
+  }
+  else {
+    printf "%d->%d [color=grey];\n",u,v>>"output.dot";
+  }
+}
+printf "}">>"output.dot";

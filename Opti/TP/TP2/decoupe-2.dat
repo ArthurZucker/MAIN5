@@ -1,0 +1,11 @@
+#--
+#-- Exemple : Prog. lin. gene. 
+
+param taille_rouleau := 100 ;
+
+param: LongDEMANDEES: DEMANDE :=
+   45 97
+   36 610
+   31 395
+   14 211 ;
+   

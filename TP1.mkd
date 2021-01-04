@@ -1,0 +1,38 @@
+# Part 1 
+## Question 1 
+Ouverture du fichier
+## Question 2
+Ne pas oublier de cliquer sur `apply`
+Utiliser `extract surface` puis apply 
+## Question 3
+The missing information is the normal array
+## Question 4
+Needs to be created using Generate Surface Normal. 
+## Question 5
+Representation : surface with edges 
+## Question 6
+Just press `f`
+## Question 7
+Extract selection
+## Question 8
+Apply previous features to get smooth
+Then use filter `feature edges` + surface normal to changing the opacity to get the combination of both 
+
+# Part 2 
+## Question 9 
+Open color map editor (not really well done...)
+## Question 10
+Select the "showing"
+'f' then show selected elements only. 
+## Question 11 
+I used the wrap by scalar filter 
+## Question 12 
+Extract selection directly on the 3D, not on the surface
+## Question 13 
+Applied two clip plan filters, but don't know how to handle the color map 
+## Question 14 
+Appplied :
+- treshold filter
+- iso volum to extract the bottom part
+## Question 15 
+

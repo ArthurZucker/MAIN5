@@ -1,0 +1,49 @@
+#Fichier .run
+reset;
+# Options et solvers ...
+option solver cplex;
+model ex2.mod;
+data decoupe-1.dat;
+#-- Le pb principal et le sous-pb ...
+problem PbPrincipal: x,nbrRouleaux,ContDmd;
+option relax_integrality 1;
+option presolve 0; 
+problem SousPb: y,CoutReduit,LongLimite;
+option relax_integrality 0;
+option presolve 1; 
+#--L’algorithme
+let nbrMotifs := 0;
+
+param Cardinalite integer > 0;
+set EnsExtensible := 1 .. Cardinalite;
+
+
+#-- Solution initiale ... 
+for {i in LongDEMANDEES} {
+	let nbrMotifs := nbrMotifs + 1;
+	let Dmd[i,nbrMotifs] := floor (taille_rouleau/i);
+	let {i2 in LongDEMANDEES: i2 <> i} Dmd[i2,nbrMotifs] := 0;
+};
+
+#-- La boucle ... 
+repeat {
+#-- resoudre probleme maitre ...
+	solve PbPrincipal;
+	let {i in LongDEMANDEES} prix[i] := ContDmd[i].dual;
+#resoudre sous-probleme 
+	solve SousPb;
+	printf "\n Motif : \n";
+	display y;
+	if CoutReduit < 0 then {
+		let nbrMotifs := nbrMotifs + 1;
+		let {i in LongDEMANDEES} Dmd[i,nbrMotifs] := y[i]; }
+	else break;
+};
+printf "\n Rapport solution : \n"; 
+display Dmd;
+display x;
+printf "\n Resolution exacte du pb principal \n";  
+option PbPrincipal.relax_integrality 0;
+option PbPrincipal.presolve 10;
+solve PbPrincipal;
+display x;

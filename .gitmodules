@@ -1,0 +1,9 @@
+[submodule "HPC/HPCA"]
+	path = HPC/HPCA
+	url = https://github.com/ArthurZucker/HPCA.git
+[submodule "Crypto/Crypto-TP"]
+	path = Crypto/Crypto-TP
+	url = https://github.com/ArthurZucker/Crypto-TP.git
+[submodule "Visualisation"]
+	path = Visualisation
+	url = https://github.com/ArthurZucker/Visualisation.git
