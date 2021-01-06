@@ -8,3 +8,8 @@
 [submodule "Visualisation"]
 	path = Visualisation
 	url = https://github.com/ArthurZucker/Visualisation.git
+
+
+[submodule "IA/Project_Static_and_Dynamic_Hand_Gestures"]
+	path = IA/Project_Static_and_Dynamic_Hand_Gestures
+	url = https://github.com/clementapa/Project_Static_and_Dynamic_Hand_Gestures.git
