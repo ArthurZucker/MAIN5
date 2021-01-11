@@ -1,0 +1,12 @@
+h = 10;                     // Characteristic length of a mesh element
+ Point(1) = {0, 0, 0, h/10};   // Point construction
+ Point(2) = {10, 0, 0, h};
+ Point(3) = {20, 20, 0, h};
+ Point(4) = {0, 20, 0, h};
+ Line(1) = {1,2};            //Lines
+ Line(2) = {2,3};
+ Line(3) = {3,4};
+ Line(4) = {4,1};
+ Curve Loop(1) = {1,2,3,4};  // A Boundary
+ Plane Surface(1) = {1};     // A Surface
+ Physical Surface(1) = {1};  // Setting a label to the Surface
